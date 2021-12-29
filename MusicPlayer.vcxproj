@@ -20,9 +20,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MusicPlayer.h" />
+    <ClInclude Include="Song.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MusicPlayer.cpp" />
+    <ClCompile Include="Song.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

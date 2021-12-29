@@ -1,4 +1,5 @@
 #include "MusicPlayer.h"
+#include "Song.h"
 
 bool MusicPlayer::OnInit()
 {
@@ -21,9 +22,13 @@ Frame::Frame(const wxString& title, const wxPoint& pos, const wxSize& size)
 	wxMenu* menuHelp = new wxMenu();
 	menuHelp->Append(wxID_ABOUT);
 
+	wxMenu* menuTest = new wxMenu();
+	menuTest->Append(ID_Test, "&test", "Test");
+
 	wxMenuBar* menuBar = new wxMenuBar();
 	menuBar->Append(menuFile, "&File");
 	menuBar->Append(menuHelp, "&Help");
+	menuBar->Append(menuTest, "&Test");
 
 	SetMenuBar(menuBar);
 
@@ -44,6 +49,11 @@ void Frame::OnExit(wxCommandEvent& event)
 
 void Frame::OnAbout(wxCommandEvent& event)
 {
-	wxMessageBox("This is a wxWidgets' Hello world sample", "About Hello World", wxOK | wxICON_INFORMATION);
+	wxMessageBox("A Music Player created by Cole Hoffman over winter break 2021.\nContact: colehoffman@ou.edu", appName, wxOK | wxICON_INFORMATION);
 }
 
+void Frame::OnTest(wxCommandEvent& event) {
+	Song* song = new Song("Testing", "Cole", "Image", 100);
+	wxMessageBox(song->author + " " + song->songCover + " " + song->songTitle + "\n", "Testing", wxOK | wxICON_INFORMATION);
+	delete(song);
+}
